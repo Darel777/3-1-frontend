@@ -1,0 +1,46 @@
+header {
+    background-color: rgba(224,255,255,0.9);
+    position: fixed;
+    top: 0;
+    margin-left: -8px;
+    height: 100px;
+    width: 100%;
+    z-index: 10;
+}
+#login{
+    float: left;
+    clear: right;
+}
+#login h1{
+    font-family: 华光彩云_CNKI, serif;
+}
+ul.menu{
+    margin: 0px;
+    padding: 0px;
+    float: right;
+}
+ul.menu >li{
+    list-style: none;
+    text-decoration: none;
+    float: left;
+    padding: 0;
+    margin: 20px;
+    position: relative;
+}
+ul.menu > li:hover >a{
+    color: white;
+}
+ul.menu > li > a:hover, ul.menu > li > a:focus{
+    outline: none;
+    color: white;
+    background-color: rgb(255, 0, 155);
+}
+ul.menu > li > a:active{
+    outline: none;
+    color: white;
+    background-color: #FF0000;
+}
+img{
+    width: 100%;
+    height: 100%;
+}

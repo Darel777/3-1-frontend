@@ -1,0 +1,76 @@
+.picture{
+    width: 330px;
+    float: left;
+    margin: 10px;
+    height: 240px;
+    background: rosybrown;
+}
+header {
+    background-color: rgba(224,255,255,0.9);
+    position: fixed;
+    top: 0;
+    margin-left: -8px;
+    height: 100px;
+    width: 100%;
+    z-index: 10;
+}
+#login{
+    float: left;
+    clear: right;
+}
+#login h1{
+    font-family: 华光彩云_CNKI, serif;
+}
+ul.menu{
+    margin: 0px;
+    padding: 0px;
+    float: right;
+}
+ul.menu >li{
+    list-style: none;
+    text-decoration: none;
+    float: left;
+    padding: 0;
+    margin: 20px;
+    position: relative;
+}
+ul.menu > li:hover >a{
+    color: white;
+}
+ul.menu > li > a:hover, ul.menu > li > a:focus{
+    outline: none;
+    color: white;
+    background-color: rgb(255, 0, 155);
+}
+ul.menu > li > a:active{
+    outline: none;
+    color: white;
+    background-color: #FF0000;
+}
+.block{
+    margin-top: 200px;
+    clear: both;
+}
+figure{
+    display: block;
+    width: 312px;
+    height: 195px;
+    background: #e7e3d8;
+    margin: 0;
+    padding: 9px;
+    text-align: left;
+}
+.block>h1{
+    width: fit-content;
+    background-color: #e7e3d8;
+}
+figure img{
+    width: 308px;
+    height: 200px;
+    border: 1px solid #d6d6d6;
+}
+figcaption{
+    background-image: url("../pics/icon.png");
+    background-repeat: no-repeat;
+    padding-left: 20px;
+}

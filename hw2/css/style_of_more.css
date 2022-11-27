@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins',sans-serif;
+    box-sizing: border-box;
+}
+img{
+width: 60px;
+height: 60px; 
+
+}  
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+
+}
+body a #container2{
+    position:absolute;
+    right: 6cm;
+    top: 4cm;
+}
+.navigation{
+    position: absolute;
+    height: 550px;
+    width: 70px;
+    left: 100px;
+    background:rgba(100, 91, 189, 0.1);
+    border-radius: 30px;
+    border-left:10px 0 0 #da6aee;
+    overflow-x: hidden;
+    transition: 0.5s;
+}
+.navigation:hover{
+    width: 300px;
+
+}
+.navigation ul{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width:100%;
+    padding-left: 5px ;
+    padding-top: 40px;
+
+}
+.navigation ul li{
+    position: relative;
+    list-style: none;
+    width:100%;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+.navigation ul li.active{
+    background: aliceblue;
+    transition: 0.2s;
+}
+
+.navigation ul li a{
+    position: relative;
+    display: block;
+    width: 100%;
+    display: flex;
+    text-decoration: none;
+    color:aliceblue;
+}
+.navigation ul li.active a::before{
+    transition: 0.5s;
+    content: '';
+    position:absolute;
+    top:-30px;
+    right:0;
+    width:30px;
+    height: 30px;
+    background: transparent;
+    border-radius: 50%;
+    box-shadow: 15px 15px 0 aliceblue;
+    
+}
+.navigation ul li.active a::after{
+    transition: 0.5s;
+    content: '';
+    position:absolute;
+    bottom:-30px;
+    right:0;
+    width:30px;
+    height: 30px;
+    background: transparent;
+    border-radius: 50%;
+    box-shadow: 15px -15px 0 aliceblue;
+    
+    }
+.navigation ul li a .icon{
+    position: relative;
+    display: block;
+    min-width: 60px;
+    height: 60px;
+    text-align: center;
+    line-height: 60px;
+}
+.navigation ul li a  .title{
+    position: relative;
+    display: block;
+    padding-left: 10px;
+    height: 60px;
+    line-height: 60px;
+    white-space: nowrap;
+    color:black;
+}
+
