@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>查看大图</title>
+    <link href="css/subPage.css" type="text/css" rel="stylesheet">
+</head>
+
+
+
+
+
+<body>
+<header>
+    <nav>
+        <ul class="menu">
+            <li class="type"><a href="../index.html">主页</a></li>
+        </ul>
+    </nav>
+</header>
+<!-- 原图 -->
+<div id="original"></div>
+<!-- 可见水印SVG -->
+<div id="SVG">
+    <div id="watermark"><img src="pics/16.jpg" alt="16.jpg"></div>
+    <div id="watermarkgraph"></div>
+</div>
+<!-- 不可见水印 -->
+<div id="fuliye">
+    <canvas id="fourier" width="1024" height="768"></canvas>
+</div>
+</body>
+
+<script src="js/cryptostego.min.js"></script>
+<script src="js/subPage.js"></script>
+
+</html>

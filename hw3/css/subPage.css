@@ -1,0 +1,148 @@
+#watermark{
+    position: relative;
+    z-index: 2;
+    float: left;
+}
+#watermarkgraph{
+    position: absolute;
+    z-index: 1;
+}
+#SVG{
+    width: auto;
+    height: auto;
+    overflow: auto;
+    position:relative;
+}
+#fourier{
+    border:1px solid #ccc;margin:20px auto;display: block;
+}
+#fuliye{
+    position:relative;
+    z-index:3;
+}
+header {
+    background-color: rgba(224,255,255,0.9);
+    position: fixed;
+    top: 0;
+    margin-left: -8px;
+    height: 100px;
+    width: 100%;
+    z-index: 10;
+}
+ul.menu{
+    margin: 0px;
+    padding: 0px;
+    float: right;
+}
+ul.menu >li{
+    list-style: none;
+    text-decoration: none;
+    float: left;
+    padding: 0;
+    margin: 20px;
+    position: relative;
+}
+ul.menu > li:hover >a{
+    color: white;
+}
+ul.menu > li > a:hover, ul.menu > li > a:focus{
+    outline: none;
+    color: white;
+    background-color: rgb(255, 0, 155);
+}
+ul.menu > li > a:active{
+    outline: none;
+    color: white;
+    background-color: #FF0000;
+}
+img{
+    width: 100%;
+    height: 100%;
+}
+body{
+    /* 背景颜色 */
+    margin: 0;
+    min-height: 100vh;
+    background-color: #e493d0;
+    background-image: 
+    radial-gradient(closest-side,rgba(228, 156, 108,1),rgba(228, 156, 108,0)),
+    radial-gradient(closest-side,rgba(117, 219, 159,1),rgba(117, 219, 159,0)),
+    radial-gradient(closest-side,rgba(115, 228, 248,1),rgba(115, 228, 248,0)),
+    radial-gradient(closest-side,rgba(170,142,245,1),rgba(170,142,245,0)),
+    radial-gradient(closest-side,rgba(241, 131, 146,1),rgba(241, 131, 146,0));
+    background-size: 130vmax 130vmax,
+                     60vmax 60vmax,
+                     90vmax 90vmax,
+                     110vmax 110vmax,
+                     90vmax 90vmax;
+    background-position: -80vmax -80vmax,
+                         60vmax -30vmax,
+                         10vmax 10vmax,
+                         -30vmax -10vmax,
+                         50vmax 50vmax;
+    background-repeat: no-repeat;
+    animation: 15s movement linear infinite;
+}
+body::after{
+    /* 背景部分过滤器 */
+    /* content: '';
+    display: block;
+    position: fixed;
+    width:100%;
+    height: 100%;
+    top:0;
+    left:0;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); */
+}
+@keyframes movement {
+    /* 背景部分动效 */
+    0%,100%{
+        background-size: 130vmax 130vmax,
+                     70vmax 70vmax,
+                     90vmax 90vmax,
+                     110vmax 110vmax,
+                     90vmax 90vmax;
+    background-position: -80vmax -80vmax,
+                         60vmax -30vmax,
+                         10vmax 10vmax,
+                         -30vmax -10vmax,
+                         50vmax 50vmax;
+    }
+    25%{
+        background-size: 110vmax 150vmax,
+                     100vmax 100vmax,
+                     110vmax 70vmax,
+                     90vmax 130vmax,
+                     70vmax 110vmax;
+    background-position: -60vmax -100vmax,
+                         80vmax -10vmax,
+                         -10vmax -10vmax,
+                         -10vmax 10vmax,
+                         30vmax 70vmax;
+    }
+    50%{
+        background-size: 120vmax 140vmax,
+                     90vmax 70vmax,
+                     100vmax 80vmax,
+                     90vmax 130vmax,
+                     80vmax 100vmax;
+    background-position: -45vmax -110vmax,
+                         90vmax 0vmax,
+                         -20vmax -20vmax,
+                         -5vmax 15vmax,
+                         25vmax 80vmax;
+    }
+    75%{
+        background-size: 110vmax 150vmax,
+                     100vmax 100vmax,
+                     110vmax 70vmax,
+                     90vmax 130vmax,
+                     70vmax 110vmax;
+    background-position: -60vmax -100vmax,
+                         80vmax -10vmax,
+                         -10vmax -10vmax,
+                         -10vmax 10vmax,
+                         30vmax 70vmax;
+    }
+}
