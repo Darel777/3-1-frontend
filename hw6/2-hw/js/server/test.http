@@ -1,0 +1,22 @@
+@url=http://localhost:3001/api
+@json=Content-Type: application/json
+###
+get {{url}}/users
+###
+post {{url}}/register
+{{json}}
+
+{
+    "username":"user1",
+    "account":"745381612@qq.com",
+    "password":"123456"
+}
+###
+post {{url}}/login
+{{json}}
+
+{
+    "username":"user1",
+    "account":"745381611@qq.com",
+    "password":"1234567"
+}
