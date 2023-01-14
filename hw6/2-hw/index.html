@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8">
+        <title>秋日校园</title>
+        <link href="css/index.css" type="text/css" rel="stylesheet">
+    </head>
+<body>
+    <!-- header首页面 -->
+    <header>
+        <nav>
+            <ul class="menu">
+                <li><button id="skin" onclick="styleChange()">图片风格迁移</button></li>
+                <li><button id="skin" onclick="styleChange2()">漫画化</button></li>
+                <li><button id="skin" onclick="styleChange3()">AI绘画</button></li>
+                <li><button id="skin" onclick="styleChange4()">AI助手</button></li>
+                <li><button id="skin" onclick="changeSkin()">切换模式</button></li>
+                <li><button id="skin" onclick="getAuth()">查看用户</button></li>
+                <li><button id="skin" onclick="exitAuth()">退出登录</button></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- 图片展示栏 -->
+    <div class="block" id="school">
+        <h1>校园</h1>
+        <hr class="seperator" />
+        <div class="picture">
+            <figure><a href="javascript:gotosub(1)"><img src="pics/1.jpg" alt="校园——1" /></a>                
+            </figure>
+        </div>
+        <div class="picture">
+            <figure><a href="javascript:gotosub(2)"><img src="pics/2.jpg" alt="校园——2" /></a>            
+            </figure>
+        </div>
+        <div class="picture">
+            <figure><a href="javascript:gotosub(3)"><img src="pics/3.jpg" alt="校园——3" /></a>               
+            </figure>
+        </div>
+        <div class="picture">
+            <figure><a href="javascript:gotosub(4)"><img src="pics/4.jpg" alt="校园——4" /></a>           
+            </figure>
+        </div>
+        <div class="picture">
+            <figure><a href="javascript:gotosub(5)"><img src="pics/5.jpg" alt="校园——5" /></a>                
+            </figure>
+        </div>
+    </div>
+    <div class="block" id="fall">
+        <h1>人像</h1>
+        <hr class="seperator" />
+        <div class="picture">
+            <figure><a href="javascript:gotosub(6)"><img src="pics/6.jpg" alt="秋日——1" /></a>           
+            </figure>
+        </div>
+        <div class="picture">
+            <figure><a href="javascript:gotosub(7)"><img src="pics/7.jpg" alt="秋日——2"></a>            
+            </figure>
+        </div>
+        <div class="picture">
+            <figure><a href="javascript:gotosub(8)"><img src="pics/8.jpg" alt="秋日——3"></a>            
+            </figure>
+        </div>
+        <div class="picture">
+            <figure><a href="javascript:gotosub(9)"><img src="pics/9.jpg" alt="秋日——4"></a>            
+            </figure>
+        </div>
+        <div class="picture">
+            <figure><a href="javascript:gotosub(10)"><img src="pics/10.jpg" alt="秋日——5"></a>            
+            </figure>
+        </div>
+    </div>
+    <div class="block" id="FinS">
+        <h1>风景</h1>
+        <hr class="seperator" />
+        <div class="picture">
+            <figure><a href="javascript:gotosub(11)"><img src="pics/11.jpg" alt="秋日校园——1" /></a>                
+            </figure>
+        </div>
+        <div class="picture">
+            <figure><a href="javascript:gotosub(12)"><img src="pics/12.jpg" alt="秋日校园——2" /></a>                
+            </figure>
+        </div> 
+        <div class="picture">
+            <figure><a href="javascript:gotosub(13)"><img src="pics/13.jpg" alt="秋日校园——3" /></a>                
+            </figure>
+        </div>
+        <div class="picture">
+            <figure><a href="javascript:gotosub(14)"><img src="pics/14.jpg" alt="秋日校园——4"></a>               
+            </figure>
+        </div>
+        <div class="picture">
+            <figure><a href="javascript:gotosub(15)"><img src="pics/15.jpg" alt="秋日校园——5"></a>         
+            </figure>
+        </div>
+    </div>
+<!-- 音乐盒 -->
+<audio src="" id="mymusic"></audio>
+<div class="music">
+    <div class="pic_div"> <img src="./pics/music_pic/disc.png" alt="" class="disc"> <img src="./pics/music_pic/girl.png" alt="" id="music_pic"> <span class="dot"></span>
+        <div class="music_program">
+        <div id="prograss"></div>
+        </div>
+
+        <div class="time">
+        <p><span id="currenttime">0:00</span><span>/</span><span id="duration">0:00</span></p>
+        </div>
+
+        <div class="music_menu"> <span onClick="backMusic()"></span> <span onClick="playPause()" id="playbtn"></span> <span onClick="nextMusic()"></span> </div>
+    </div>
+</div>
+</body>
+</html>
+<script>
+    function styleChange(){//1.图片风格迁移
+    window.location.href="http://localhost:9966/"
+}
+function styleChange2(){//2.漫画化
+    window.location.href="http://c4ba-34-82-19-63.ngrok.io"
+}
+function styleChange3(){//3.AI绘画
+    window.location.href="https://89edc4ebcf10b2bf.gradio.app"
+}
+function styleChange4(){//4.chatGPT接口
+    var urlParams = window.location.href;
+    var context = urlParams.substring(urlParams.indexOf("=")+1,urlParams.length)
+    window.location.href="chatGPT.html"+"?username="+context
+}
+let i=0;//5.切换模式
+function changeSkin(){
+    if(i%2==0){
+        i=i+1;
+        changeSkin1();
+    }else{
+        i=i+1;
+        changeSkin2();
+    }
+}
+function changeSkin1(){
+    document.body.className="dark";
+}
+function changeSkin2(){
+    document.body.className="light";
+}
+function gotosub(num){//6&7.检查登录状态和退出登录
+    var urlParams = window.location.href;
+    var context = urlParams.substring(urlParams.indexOf("=")+1,urlParams.length)
+    window.location.href="subPage.html?"+num+".jpg"+"&username="+context
+}
+function getAuth(){
+    var urlParams = window.location.href;
+    var context = urlParams.substring(urlParams.indexOf("=")+1,urlParams.length)
+    let cookie=getCookie(String(context))
+    if(context.charAt(4)!==':'){
+        alert("已登录，当前帐号为："+context)
+    }else{
+        alert("未登录！")
+    }
+}
+function exitAuth(){
+    var urlParams = window.location.href;
+    var context = urlParams.substring(urlParams.indexOf("=")+1,urlParams.length)
+    delCookie(context)
+    window.location.href="login.html"       
+}
+/**
+* 设置cookie
+**/
+function setCookie(name, value, day) {
+if(typeof day == 'number'){
+  let date = new Date();
+  date.setDate(date.getDate() + day);
+  document.cookie = name + '=' + value + ';expires=' + date;     
+}
+};
+/**
+* 获取cookie
+**/
+function getCookie(name) {
+  let reg = RegExp(name + '=([^;]+)');
+  let arr = document.cookie.match(reg);
+  if (arr) {
+      return arr[1];
+  } else {
+      return '';
+  }
+};
+/**
+* 删除cookie
+**/
+function delCookie(name) {
+    setCookie(name, null, -1);
+};
+//音乐部分
+//获取元素
+var music=document.getElementById("mymusic");
+var prograss=document.getElementById("prograss");
+var curtxt=document.getElementById("currenttime");
+var duration=document.getElementById("duration");
+var music_pic=document.getElementById("music_pic");
+var deg=0;//旋转角度
+var disctimer,prograsstimer;//碟片计时器,进度条计时器
+var musicindex=0;//音乐索引
+var musics=new Array("./music/Are You Lost.mp3","./music/Feels Like.mp3","./music/STYX HELIX.mp3","./music/带我去找夜生活.mp3","./music/Never Gonna Give You Up.mp3");//音乐数组
+var music_pics=new Array("./pics/music_pic/song1.png","./pics/music_pic/song2.png","./pics/music_pic/song3.png","./pics/music_pic/song4.png","./pics/music_pic/song5.png");
+//旋转碟片
+var disc=document.getElementsByClassName('disc');
+//音乐时间显示
+ function curtime(txt,music)
+ {
+    if(music.currentTime<10)
+    {
+        txt.innerHTML="0:0"+Math.floor(music.currentTime);
+    }else
+    if(music.currentTime<60)
+    {
+    txt.innerHTML="0:"+Math.floor(music.currentTime);
+    }
+    else
+    {
+    var minet=parseInt(music.currentTime/60);
+    var sec=music.currentTime-minet*60;
+    if(sec<10)
+    {
+    txt.innerHTML="0"+minet+":"+"0"+parseInt(sec);
+    }
+    else
+    {
+    txt.innerHTML="0"+minet+":"+parseInt(sec);
+    }
+    }
+ } 
+ //播放暂停
+ function playPause()
+ {
+    var btn=document.getElementById("playbtn");
+    if(music.paused)
+    {
+        music.play();
+        clearInterval(disctimer);//清除碟片的定时器
+        btn.style.background="url(./pics/music_pic/play.png) no-repeat 10px";//改变播放暂停键的图标
+        disctimer=setInterval(function(){
+        disc[0].style.transform="rotate("+deg+"deg)";
+        deg+=5;
+        //每秒设置进度条长度
+        },100);
+        prograsstimer=setInterval(function(){
+        prograss.style.width=(music.currentTime)*100 / (music.duration)+"%";
+        curtime(curtxt,music);
+        if(music.currentTime>=music.duration-1)//片尾跳转下一曲
+        {
+        musicindex++;//音乐索引加一
+        if(musicindex>=musics.length)//如果音乐索引超过长度，将音乐索引清零
+        {
+        musicindex=0;
+        }
+        getMusic();
+        music.play();//重载音乐后进行播放
+        }
+        },1000);
+    }
+ else
+ {
+  music.pause();//停止音乐
+  btn.style.background="url(./pics/music_pic/pause.png) no-repeat 10px";
+  clearInterval(disctimer);//清除碟片滚动的定时器
+  clearInterval(prograsstimer);//清除进度条的定时器
+ }
+ }
+ //下一曲
+ function nextMusic()
+ {
+    musicindex++;//音乐索引加一
+    if(musicindex>=musics.length)//如果音乐索引超过长度，将音乐索引清零
+    {
+    musicindex=0;
+    }
+    getMusic();
+    music.play();
+ }
+ //上一曲
+ function backMusic()
+ {
+    musicindex--;
+    if(musicindex<0)//如果索引小于0，将索引变为最大值
+    {
+    musicindex=musics.length-1;
+    }
+    getMusic();
+    music.play();
+ } 
+ //读取音乐
+ function getMusic()
+ {
+    music.src=musics[musicindex];//改变音乐的SRC
+    music_pic.src=music_pics[musicindex];//改变音乐的封面
+    if(music.readyState="complete")
+    {
+    setTimeout(function(){
+    duration.innerHTML=parseInt(music.duration/60)+":"+parseInt(music.duration%60);
+    },1000);//一秒后读取音乐的总时长
+    }
+ }
+ window.onload=function(){
+    var urlParams = window.location.href;
+    var context = urlParams.substring(urlParams.indexOf("=")+1,urlParams.length)
+    setCookie(String(context),"randomaccess",7)
+    getMusic();
+}
+</script>

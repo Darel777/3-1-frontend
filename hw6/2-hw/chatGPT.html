@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8">
+        <title>AI智能助手</title>
+        <link href="css/index.css" type="text/css" rel="stylesheet">
+    </head>
+    <body>
+        <header>
+            <nav>
+                <ul class="menu">
+                        <li><button id="skin" onclick="home()">回到主页</button></li>
+                        <li><button id="skin" onclick="getAuth()">查看用户</button></li>
+                        <li><button id="skin" onclick="exitAuth()">退出登录</button></li>
+                </ul>
+            </nav>
+        </header>
+        <div class="quesArea">
+            <input type="text" placeholder="请输入你的问题" class="quesText" id="ques">
+            <button type="button" onclick="connectGPT()">获取答案</button>
+        </div>
+    </body>
+
+</html>
+<script src="js/jquery.js"></script>
+<script>
+function home(){
+  var urlParams = window.location.href;
+  var context = urlParams.substring(urlParams.indexOf("=")+1,urlParams.length)
+  window.location.href="index.html?"+"username="+context
+}
+function getAuth(){
+  var urlParams = window.location.href;
+  var context = urlParams.substring(urlParams.indexOf("=")+1,urlParams.length)
+  let cookie=getCookie(String(context))
+  if(context.charAt(4)!==':'){
+      alert("已登录，当前帐号为："+context)
+  }else{
+      alert("未登录！")
+  }
+}
+function exitAuth(){
+  var urlParams = window.location.href;
+      var context = urlParams.substring(urlParams.indexOf("=")+1,urlParams.length)
+      delCookie(context)
+      window.location.href="login.html"      
+}
+/**
+ * 设置cookie
+ **/
+ function setCookie(name, value, day) {
+  if(typeof day == 'number'){
+    let date = new Date();
+    date.setDate(date.getDate() + day);
+    document.cookie = name + '=' + value + ';expires=' + date;     
+  }
+};
+/**
+ * 获取cookie
+ **/
+function getCookie(name) {
+    let reg = RegExp(name + '=([^;]+)');
+    let arr = document.cookie.match(reg);
+    if (arr) {
+        return arr[1];
+    } else {
+        return '';
+    }
+};
+/**
+ * 删除cookie
+ **/
+function delCookie(name) {
+    setCookie(name, null, -1);
+};
+function connectGPT() {
+        var data = {
+            prompt:document.getElementById("ques").value,
+        }
+        $.ajax({
+            url:"http://localhost:3000/api/chatGPT2answer",
+            type:'post',
+            data:data,
+            success:function(res){
+                alert(res.answer)
+            }   
+        })
+}
+</script>
